@@ -11,14 +11,16 @@ FAQS = [
 VOCAB = ["password", "account", "travel", "expenses", "receipt", "vacation", "leave", "manager"]
 
 
+def text_to_vector(text):
+    t = text.strip().lower().replace("?", "").replace(".", "")
+    return [t.split().count(word) for word in VOCAB]
+
+
 def search(query):
-    # Repeated cleanup and vector construction: intentionally awkward.
-    q = query.strip().lower().replace("?", "").replace(".", "")
-    qv = [q.split().count(word) for word in VOCAB]
+    qv = text_to_vector(query)
     results = []
     for item in FAQS:
-        t = item["text"].strip().lower().replace("?", "").replace(".", "")
-        v = [t.split().count(word) for word in VOCAB]
+        v = text_to_vector(item["text"])
         dot = 0.0
         nq = 0.0
         nv = 0.0
@@ -39,11 +41,8 @@ def search(query):
 
 
 def compare_texts(first, second):
-    # Same work repeated in a second entry point.
-    a = first.strip().lower().replace("?", "").replace(".", "")
-    b = second.strip().lower().replace("?", "").replace(".", "")
-    av = [a.split().count(word) for word in VOCAB]
-    bv = [b.split().count(word) for word in VOCAB]
+    av = text_to_vector(first)
+    bv = text_to_vector(second)
     dot = 0.0
     na = 0.0
     nb = 0.0
