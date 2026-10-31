@@ -36,3 +36,23 @@ For "Execute together", Florence directs Extraction 1 and Jesse reviews; roles s
     and the README says not to change the checks to make them pass. `eval_cases.json` was not touched.
   - Status: the FAIL is unresolved on this Windows clone. The evidence that behavior is preserved is
     that every field except `fixture_sha256` matches `baseline.json`.
+
+## 2026-10-31 — Extraction 2 (Jesse directing, Florence reviewing)
+
+### Change made to `search.py`
+- Added `cosine_similarity(first_vector, second_vector)`, as specified in TEAM_NOTES. It takes two
+  `list[int]` vectors of the same length and returns a `float`: 0.0 if either vector is all zeros,
+  and otherwise `dot / (math.sqrt(norm1) * math.sqrt(norm2))`.
+- The body is the existing loop, kept as it was. The sums start at 0.0 and add in the same order,
+  and the zero check and formula are unchanged, so the scores are bit-for-bit identical.
+- Replaced 2 call sites: `search` (`score = cosine_similarity(qv, v)`) and `compare_texts`
+  (`return cosine_similarity(av, bv)`). This removed the duplicated dot/norm code.
+- `search(query)` and `compare_texts(first, second)` keep their signatures and return shapes.
+
+### Evaluation (`python3 evaluate.py --after`, macOS clone)
+- Before the edit: **PASS**, 5/6 correct.
+- After the edit: **PASS**, 5/6 correct. All results, scores and `comparison_probes` match
+  `baseline.json`.
+- The `fixture_sha256` now matches too (`5952…6dbc`). This macOS clone checks out
+  `eval_cases.json` with LF line endings, which confirms the Extraction 1 FAIL was caused by CRLF
+  line endings on the Windows clone, not by the refactor.

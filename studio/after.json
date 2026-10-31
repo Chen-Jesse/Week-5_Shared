@@ -1,5 +1,5 @@
 {
-  "fixture_sha256": "15d0161278664b451eec89d7a5b5f01be700fc48749d1f8bab0649d359140a0d",
+  "fixture_sha256": "595290132310ec7eb0da1d2d2798dbd724b61238de3afb1138e01f0512686dbc",
   "faqs": [
     {
       "id": "password",
@@ -164,5 +164,5 @@
     0.0,
     0.4999999999999999
   ],
-  "behavior_preserved": false
+  "behavior_preserved": true
 }
