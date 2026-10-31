@@ -1,0 +1,167 @@
+{
+  "fixture_sha256": "595290132310ec7eb0da1d2d2798dbd724b61238de3afb1138e01f0512686dbc",
+  "faqs": [
+    {
+      "id": "password",
+      "text": "Reset your password using the account portal."
+    },
+    {
+      "id": "expenses",
+      "text": "Submit travel expenses with a receipt."
+    },
+    {
+      "id": "leave",
+      "text": "Request vacation leave through your manager."
+    }
+  ],
+  "vocab": [
+    "password",
+    "account",
+    "travel",
+    "expenses",
+    "receipt",
+    "vacation",
+    "leave",
+    "manager"
+  ],
+  "correct": 5,
+  "results": [
+    {
+      "id": "q1",
+      "question": "How do I reset my password?",
+      "expected": "password",
+      "actual": "password",
+      "score": 0.7071067811865475,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.7071067811865475
+        },
+        {
+          "id": "expenses",
+          "score": 0.0
+        },
+        {
+          "id": "leave",
+          "score": 0.0
+        }
+      ],
+      "correct": true
+    },
+    {
+      "id": "q2",
+      "question": "Where is my account?",
+      "expected": "password",
+      "actual": "password",
+      "score": 0.7071067811865475,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.7071067811865475
+        },
+        {
+          "id": "expenses",
+          "score": 0.0
+        },
+        {
+          "id": "leave",
+          "score": 0.0
+        }
+      ],
+      "correct": true
+    },
+    {
+      "id": "q3",
+      "question": "Submit travel expenses?",
+      "expected": "expenses",
+      "actual": "expenses",
+      "score": 0.8164965809277259,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.0
+        },
+        {
+          "id": "expenses",
+          "score": 0.8164965809277259
+        },
+        {
+          "id": "leave",
+          "score": 0.0
+        }
+      ],
+      "correct": true
+    },
+    {
+      "id": "q4",
+      "question": "Where do I send my receipt?",
+      "expected": "expenses",
+      "actual": "expenses",
+      "score": 0.5773502691896258,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.0
+        },
+        {
+          "id": "expenses",
+          "score": 0.5773502691896258
+        },
+        {
+          "id": "leave",
+          "score": 0.0
+        }
+      ],
+      "correct": true
+    },
+    {
+      "id": "q5",
+      "question": "Request vacation leave?",
+      "expected": "leave",
+      "actual": "leave",
+      "score": 0.8164965809277259,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.0
+        },
+        {
+          "id": "expenses",
+          "score": 0.0
+        },
+        {
+          "id": "leave",
+          "score": 0.8164965809277259
+        }
+      ],
+      "correct": true
+    },
+    {
+      "id": "q6",
+      "question": "I need time off",
+      "expected": "leave",
+      "actual": "password",
+      "score": 0.0,
+      "scores": [
+        {
+          "id": "password",
+          "score": 0.0
+        },
+        {
+          "id": "expenses",
+          "score": 0.0
+        },
+        {
+          "id": "leave",
+          "score": 0.0
+        }
+      ],
+      "correct": false
+    }
+  ],
+  "comparison_probes": [
+    1.0,
+    0.0,
+    0.4999999999999999
+  ]
+}
