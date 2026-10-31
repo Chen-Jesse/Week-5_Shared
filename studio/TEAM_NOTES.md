@@ -51,4 +51,4 @@ Extraction 1: text_to_vector(text) Input: text (str), meaning a query or FAQ tex
 
 Extraction 2: cosine_similarity(first_vector, second_vector) Input: two list[int] vectors of the same length Returns: float. It returns 0.0 if either vector is all zeros, and otherwise dot / (sqrt(norm1) * sqrt(norm2)) Body: the current loop, kept exactly. The sums start at 0.0 and add in the same order, and the formula keeps math.sqrt(a) * math.sqrt(b), so the scores come out bit-for-bit identical. Called from (2 places): search loop: score = cosine_similarity(qv, v) compare_texts: return cosine_similarity(av, bv) Removes: about 20 duplicated lines across the two functions
 
-- Before: ___ / 6. After: ___ / 6. Behavior check: ___
+- Before: 5 / 6. After: 5 / 6. Behavior check: PASS
